@@ -2,10 +2,6 @@
 	width:90vw;
 	margin:0 auto;
 	color:black;
-	background-color: whitesmoke;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	
-   
 }
 
 .gallery-photos {
@@ -14,7 +10,7 @@
 	flex-direction: row;
 	justify-content: flex-start;
     flex-wrap: wrap;
-	margin-top: 56px;
+
 }
 
 .Gallery h1 {

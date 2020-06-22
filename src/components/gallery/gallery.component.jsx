@@ -8,7 +8,7 @@ const Gallery = (props) => (
         <div className="gallery-photos">
             {
                 props.photos.map(photo => 
-                <ImageRow photo={photo}/>
+                <ImageRow key={photo.id} photo={photo}/>
             )}
         </div>
     </div>

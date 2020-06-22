@@ -1,4 +1,8 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
+//import { galleryData } from '../../redux/photos/photo.actions';
+
 import './gallery-overview.styles.css';
 import Gallery from '../gallery/gallery.component';
 import Logo from '../logo/logo.component';
@@ -9,21 +13,9 @@ class GalleryOverview extends React.Component {
     constructor() {
         super();
         this.state = {
-          photos : [],
           searchField: ''
         }
 
-      }
-    
-      componentDidMount() {
-        fetch('https://api.pexels.com/v1/search?query=woods', {
-            "method":'GET',
-            "headers" : {
-              "Authorization": "563492ad6f917000010000014dbbcc2f90a84262ac4e8ca27e5e9972"
-            }
-          })
-          .then(res => res.json())
-          .then(photos => this.setState({photos:photos.photos}));
       }
 
       handleChange = (e) => {
@@ -31,8 +23,8 @@ class GalleryOverview extends React.Component {
       }
 
     render() {
-        const {photos, searchField} = this.state;
-        const filteredPhotos = photos.filter(photo => photo.photographer.toLowerCase().includes(searchField.toLocaleLowerCase()));
+        const {searchField } = this.state;
+        const filteredPhotos = this.props.photos.filter(photo => photo.photographer.toLowerCase().includes(searchField.toLocaleLowerCase()));
         return (
             <div className="gallery-overview">
                 <Logo/>
@@ -45,4 +37,8 @@ class GalleryOverview extends React.Component {
     
 }
 
-export default GalleryOverview;
+const mapStateToProps = state => ({
+    photos : state.photo.photos
+})
+
+export default connect(mapStateToProps)(GalleryOverview);

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 
 import GalleryOverview from './components/gallery-overview/gallery-overview.component';
+import Footer from './components/footer/footer.component';
 
 
 class App extends React.Component {
@@ -22,7 +23,7 @@ class App extends React.Component {
               <GalleryOverview/>
             </Route>
           </Switch>
-          
+          <Footer />
         </div>
     </Router>
     
